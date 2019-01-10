@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab22dd4d8f2d24fa02e0ed3f1714c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 10
 --- !u!114 &114719776871895094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4ea8bb622bdc445af9780a91327f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  inertie: 1
+  speed: 10
+  inertie: 3
   isSkieur: 0

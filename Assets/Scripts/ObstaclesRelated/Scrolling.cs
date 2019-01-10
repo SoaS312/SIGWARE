@@ -30,10 +30,6 @@ public class Scrolling : MonoBehaviour
         {
             speed = Move.staticMove.rouleSpeed;
         }
-        else
-        {
-                speed = originalSpeed; ;
-        }
 
         if (!isSkieur)
         {
@@ -42,6 +38,17 @@ public class Scrolling : MonoBehaviour
         else {
             rb.velocity = new Vector3(0, -speed* inertie, 0);
             }
+
+        StopGame();
+        }
+
+    void StopGame()
+    {
+        if (testCollision.staticCollision.Collision)
+        {
+            speed = 0;
+            originalSpeed = 0;
         }
     }
+}
 

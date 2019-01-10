@@ -41,7 +41,8 @@ public class Spawn : MonoBehaviour {
     {
         if (Difficulty.staticDifficulty.difficultyRate == 0)
         {
-            prefabs = EasyObject;
+            if (EasyObject.Count > 0)
+                prefabs = EasyObject;
         }
 
         if (Difficulty.staticDifficulty.difficultyRate == 1)
