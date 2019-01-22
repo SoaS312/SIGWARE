@@ -32,6 +32,7 @@ public class Move : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public Vector3 wantedPositon2;
     private Vector3 mousePosition;
+    private TrailEffect Traily;
 
     public GameObject MeshNormal;
     public GameObject MeshBoule;
@@ -45,6 +46,7 @@ public class Move : MonoBehaviour
         staticMove = this;
         rb = GetComponent<Rigidbody>();
         MeshNormal.SetActive(true);
+        Traily = GetComponent<TrailEffect>();
      }
 
     private void Start()
@@ -61,6 +63,11 @@ public class Move : MonoBehaviour
         StayWithMe();
         StopGame();
         BouleDeNeige();
+
+         if (Time.time > 0.5f)
+        {
+            Traily.enabled = true;
+        }
     }
 
     void StaticYZ()
@@ -79,26 +86,6 @@ public class Move : MonoBehaviour
     
     void OnMove()
      {
-        /*Vector2 mouse = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
-
-
-        if (mouse.x < playerScreenPoint.x)
-        {
-            Vector3 movement = new Vector3(-1, 0.0f, 0.0f);
-            rb.velocity = movement * speed;
-        }
-        else if (mouse.x > playerScreenPoint.x)
-        {
-            Vector3 movement = new Vector3(1, 0.0f, 0.0f);
-            rb.velocity = movement * speed;
-        }
-
-        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);*/
-
-
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Mathf.Clamp(Input.GetAxis("Mouse X"),-1,1);
         Debug.Log(moveHorizontal);
 
