@@ -55,7 +55,7 @@ namespace GRP07_SkiMadness
         if (Input.GetKeyDown("l") || timer <= 0)
         {
             Vector3 Pos = position + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0, 0);
-            Instantiate(gameObjectSelected, Pos, Quaternion.Euler(Random.Range(0, 360), -90, 90));
+            Instantiate(gameObjectSelected, Pos, Quaternion.Euler(0,0,0));
             timer = Random.Range(minTime, maxTime);
         }
     }

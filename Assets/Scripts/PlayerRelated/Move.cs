@@ -20,6 +20,7 @@ namespace GRP07_SkiMadness
         [Header("Statut")]
         public bool isBouleDeNeige = false;
         public bool isJumping = false;
+        public bool isKO = false;
 
         [Header("Timer")]
         public float seconds;
@@ -82,16 +83,17 @@ namespace GRP07_SkiMadness
             StayWithMe();
             StopGame();
             BouleDeNeige();
-            //EnableTrail();
+            KO();
+            EnableTrail();
         }
 
-        /*private void EnableTrail()
+        private void EnableTrail()
         {
             if (seconds > 0.5f)
             {
                 Traily.enabled = true;
             }
-        }*/
+        }
 
         void StaticYZ()
         {
@@ -125,6 +127,14 @@ namespace GRP07_SkiMadness
                 MeshBoule.SetActive(true); MeshNormal.SetActive(false);
                 roule -= rouleSpeed; //ideal speed > 20
                 rb.rotation = Quaternion.Euler(roule, 0.0f, rb.velocity.x * -tilt);
+            }
+        }
+
+        void KO()
+        {
+            if (isKO)
+            {
+                MeshBoule.SetActive(false); MeshNormal.SetActive(false); MeshKO.SetActive(true);
             }
         }
 

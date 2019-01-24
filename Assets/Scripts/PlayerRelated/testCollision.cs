@@ -9,7 +9,6 @@ namespace GRP07_SkiMadness
 
         public static testCollision staticCollision;
         public bool Collision = false;
-        public List<GameObject> Spawners;
 
         // Transform of the GameObject you want to shake
         public Transform CamTransform;
@@ -51,11 +50,17 @@ namespace GRP07_SkiMadness
 
         private void OnTriggerEnter(Collider other)
         {
-            shakeDuration = 0.5f;
-            Collision = true;
-            foreach (GameObject obj in Spawners)
-                obj.SetActive(false);
-
+            if (!other.gameObject.name.Contains("Bonhomme"))
+            {
+                Move.staticMove.isKO = true;
+                shakeDuration = 0.5f;
+                Collision = true;
+            }
+            else
+            {
+                Move.staticMove.isBouleDeNeige = true;
+                Destroy(other.gameObject);
+            }
         }
     }
 }

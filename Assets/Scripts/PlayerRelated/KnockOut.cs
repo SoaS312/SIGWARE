@@ -9,7 +9,7 @@ namespace GRP07_SkiMadness
         // Update is called once per frame
         void Update()
         {
-            if (testCollision.staticCollision.Collision)
+            if (Move.staticMove.isKO)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
             }

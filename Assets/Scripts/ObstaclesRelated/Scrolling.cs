@@ -42,7 +42,7 @@ namespace GRP07_SkiMadness
                 rb.velocity = new Vector3(0, -speed * inertie, 0);
             }
 
-            if (TimerBar.staticTimer.time <= 0)
+            if (TimerBar.staticTimer.time <= 0 && !isSkieur)
             {
                 speed = 0;
                 rb.velocity = Vector3.zero;
@@ -53,7 +53,7 @@ namespace GRP07_SkiMadness
 
         void StopGame()
         {
-            if (testCollision.staticCollision.Collision)
+            if (testCollision.staticCollision.Collision && !isSkieur)
             {
                 speed = 0;
                 originalSpeed = 0;

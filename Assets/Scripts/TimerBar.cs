@@ -12,6 +12,7 @@ namespace GRP07_SkiMadness
         public float timeAmt = 10;
         public GameObject arrivée;
         public static TimerBar staticTimer;
+        public List <GameObject> Spawners;
         
         void Start()
         {
@@ -31,7 +32,7 @@ namespace GRP07_SkiMadness
             {
                 arrivée.SetActive(true);
 
-                foreach (GameObject obj in testCollision.staticCollision.Spawners)
+                foreach (GameObject obj in Spawners)
                     obj.SetActive(false);
             }
 
