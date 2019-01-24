@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyByTime : MonoBehaviour {
+namespace GRP07_SkiMadness
+{
+    public class DestroyByTime : MonoBehaviour
+    {
 
-    public int time;
+        public int time;
 
-	// Use this for initialization
-	void Start () {
-        Destroy(gameObject, time);
-		
-	}
+        // Use this for initialization
+        void Start()
+        {
+            Destroy(gameObject, time);
+
+        }
+    }
 }

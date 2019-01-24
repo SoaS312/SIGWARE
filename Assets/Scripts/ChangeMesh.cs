@@ -2,69 +2,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeMesh : MonoBehaviour
+namespace GRP07_SkiMadness
 {
-    public Mesh[] animMeshes;
-    public Mesh currentMesh;
-    public int index = 0;
-    public float timer = 10f;
-    public float currentTime;
-    public float decreaseTime;
-
-    private void FixedUpdate()
+    public class ChangeMesh : MonoBehaviour
     {
-        gameObject.GetComponent<MeshFilter>().mesh = currentMesh;
+        public Mesh[] animMeshes;
+        public Mesh currentMesh;
+        public int index = 0;
+        public float timer = 10f;
+        public float currentTime;
+        public float decreaseTime;
 
-        if (Input.GetKeyDown("space"))
+        private void FixedUpdate()
         {
-            timer = 5;
-        }
+            gameObject.GetComponent<MeshFilter>().mesh = currentMesh;
 
-        if (timer > 0)
-        {
-            timer -= 0.05f;
-        }
+            if (Input.GetKeyDown("space"))
+            {
+                timer = 5;
+            }
 
-        if (timer <= 0)
-        {
+            if (timer > 0)
+            {
+                timer -= 0.05f;
+            }
+
+            if (timer <= 0)
+            {
                 gameObject.GetComponent<Animator>().Play("New Animation", -1, 0f);
-            timer = 5;
+                timer = 5;
+            }
         }
-    }
 
-    /* // Use this for initialization
-     void Start()
-     {
-         InvokeRepeating("Animation", 1f, 5f);
-     }
-
-     private void FixedUpdate()
-     {
-         //Animation();
-     }
-
-     // Update is called once per frame
-     void Animation()
-     {
-
-         /*if (index < 8)
+        /* // Use this for initialization
+         void Start()
          {
-             index++;
-             if (index >= 8)
-             {
-                 index = 0;
-             }
-             currentMesh = animMeshes[index];
-             gameObject.GetComponent<MeshFilter>().mesh = currentMesh;
+             InvokeRepeating("Animation", 1f, 5f);
          }
-     }*/
 
-    /*private void Update()
-    {
-        if (Input.GetKeyDown("space"))
+         private void FixedUpdate()
+         {
+             //Animation();
+         }
+
+         // Update is called once per frame
+         void Animation()
+         {
+
+             /*if (index < 8)
+             {
+                 index++;
+                 if (index >= 8)
+                 {
+                     index = 0;
+                 }
+                 currentMesh = animMeshes[index];
+                 gameObject.GetComponent<MeshFilter>().mesh = currentMesh;
+             }
+         }*/
+
+        /*private void Update()
         {
-            gameObject.GetComponent<Animator>().Play("New Animation");
-        }
-    }*/
+            if (Input.GetKeyDown("space"))
+            {
+                gameObject.GetComponent<Animator>().Play("New Animation");
+            }
+        }*/
 
+    }
 }

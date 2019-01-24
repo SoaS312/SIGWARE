@@ -5477,7 +5477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
-  size: {x: 40, y: 5, z: 1}
+  size: {x: 33, y: 5, z: 1}
   timer: 0
   minTime: 0
   maxTime: 0
@@ -5585,6 +5585,11 @@ Prefab:
       propertyPath: CamTransform
       value: 
       objectReference: {fileID: 1652255732}
+    - target: {fileID: 114614918062411570, guid: 784382de969bf4c44bf6df89b9d6ecb6,
+        type: 2}
+      propertyPath: tilt
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784382de969bf4c44bf6df89b9d6ecb6, type: 2}
   m_IsPrefabAsset: 0

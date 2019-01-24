@@ -3,116 +3,127 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+
+namespace GRP07_SkiMadness
 {
-
-    [Header("Speeds")]
-    [Range(0, 10)]
-    public int speed = 10;
-    int roule;
-    [Range(10, 50)]
-    public int rouleSpeed = 20;
-    public float tilt;
-
-    [Header("Statut")]
-    public bool isBouleDeNeige = false;
-
-    [Header("Misc")]
-    float min = 0.05f;
-    float max = 0.95f;
-    float startY;
-    float startZ;
-    Vector3 staticPos;
-    Transform trans;
-    public static Move staticMove;
-    Rigidbody rb;
-    public Camera Cam;
-    public GameObject plane;
-    public Vector3 wantedPositon;
-    private Vector3 velocity = Vector3.zero;
-    public Vector3 wantedPositon2;
-    private Vector3 mousePosition;
-    private TrailEffect Traily;
-
-    public GameObject MeshNormal;
-    public GameObject MeshBoule;
-    public GameObject MeshKO;
-
-    private void Awake()
-    {
-        startY = transform.position.y;
-        startZ = transform.position.z;
-        isBouleDeNeige = false;
-        staticMove = this;
-        rb = GetComponent<Rigidbody>();
-        MeshNormal.SetActive(true);
-        Traily = GetComponent<TrailEffect>();
-     }
-
-    private void Start()
+    public class Move : MonoBehaviour
     {
 
-        wantedPositon = transform.position;
-        Cursor.visible = false;
-    }
+        [Header("Speeds")]
+        [Range(0, 10)]
+        public int speed = 10;
+        int roule;
+        [Range(10, 50)]
+        public int rouleSpeed = 20;
+        public float tilt;
 
-    void Update()
-    {
-        StaticYZ();
-        OnMove();
-        StayWithMe();
-        StopGame();
-        BouleDeNeige();
+        [Header("Statut")]
+        public bool isBouleDeNeige = false;
 
-         if (Time.time > 0.5f)
+        [Header("Timer")]
+        public float seconds;
+
+        [Header("Misc")]
+        float min = 0.05f;
+        float max = 0.95f;
+        float startY;
+        float startZ;
+        Vector3 staticPos;
+        Transform trans;
+        public static Move staticMove;
+        Rigidbody rb;
+        public Camera Cam;
+        public GameObject plane;
+        public Vector3 wantedPositon;
+        private Vector3 velocity = Vector3.zero;
+        public Vector3 wantedPositon2;
+        private Vector3 mousePosition;
+        private TrailEffect Traily;
+
+        public GameObject MeshNormal;
+        public GameObject MeshBoule;
+        public GameObject MeshKO;
+
+        private void Awake()
         {
-            Traily.enabled = true;
+            startY = transform.position.y;
+            startZ = transform.position.z;
+            isBouleDeNeige = false;
+            staticMove = this;
+            rb = GetComponent<Rigidbody>();
+            MeshNormal.SetActive(true);
+            Traily = GetComponent<TrailEffect>();
+            seconds = 0;
         }
-    }
 
-    void StaticYZ()
-    {
-        staticPos.y = startY;
-        staticPos.y = startZ;
-    }
-
-    void StayWithMe()
-    {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp(pos.x,min,max);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-    }
-
-    
-    void OnMove()
-     {
-        float moveHorizontal = Mathf.Clamp(Input.GetAxis("Mouse X"),-1,1);
-        Debug.Log(moveHorizontal);
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
-        rb.velocity = movement* 4 * speed;
-
-        rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
-
-    }
-
-
-    void BouleDeNeige()
-    {
-        if (isBouleDeNeige)
+        private void Start()
         {
-            MeshBoule.SetActive(true); MeshNormal.SetActive(false);
-            roule -= rouleSpeed; //ideal speed > 20
-            rb.rotation = Quaternion.Euler(roule, 0.0f, rb.velocity.x * -tilt);
+
+            wantedPositon = transform.position;
+            Cursor.visible = false;
+        }
+
+        void Update()
+        {
+            seconds += Time.deltaTime;
+            StaticYZ();
+            OnMove();
+            StayWithMe();
+            StopGame();
+            BouleDeNeige();
+            EnableTrail();
+        }
+
+        private void EnableTrail()
+        {
+            if (seconds > 0.5f)
+            {
+                Traily.enabled = true;
+            }
+        }
+
+        void StaticYZ()
+        {
+            staticPos.y = startY;
+            staticPos.y = startZ;
+        }
+
+        void StayWithMe()
+        {
+            Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+            pos.x = Mathf.Clamp(pos.x, min, max);
+            transform.position = Camera.main.ViewportToWorldPoint(pos);
+        }
+
+
+        void OnMove()
+        {
+            float moveHorizontal = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
+
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+            rb.velocity = movement * 3 * speed;
+
+            rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
 
         }
-    }
 
-    void StopGame()
-    {
-        if (testCollision.staticCollision.Collision) { 
-        speed = 0;
-        rouleSpeed = 0;
-    }
+        void BouleDeNeige()
+        {
+            if (isBouleDeNeige)
+            {
+                MeshBoule.SetActive(true); MeshNormal.SetActive(false);
+                roule -= rouleSpeed; //ideal speed > 20
+                rb.rotation = Quaternion.Euler(roule, 0.0f, rb.velocity.x * -tilt);
+            }
+        }
+
+        void StopGame()
+        {
+            if (testCollision.staticCollision.Collision)
+            {
+                speed = 0;
+                rouleSpeed = 0;
+            }
+        }
     }
 }

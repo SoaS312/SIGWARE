@@ -2,52 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scrolling : MonoBehaviour
+namespace GRP07_SkiMadness
 {
-    private Rigidbody rb;
-    public int speed;
-    private int originalSpeed;
-    public int inertie;
-
-    public static Scrolling staticScrolling;
-    public bool isSkieur;
-
-    private void Awake()
+    public class Scrolling : MonoBehaviour
     {
-        staticScrolling = this;
-        speed = Move.staticMove.speed;
-        originalSpeed = speed;
-    }
+        private Rigidbody rb;
+        public int speed;
+        private int originalSpeed;
+        public int inertie;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+        public static Scrolling staticScrolling;
+        public bool isSkieur;
 
-    void Update()
-    {
-        if (Move.staticMove.isBouleDeNeige)
+        private void Awake()
         {
-            speed = Move.staticMove.rouleSpeed;
+            staticScrolling = this;
+            speed = Move.staticMove.speed;
+            originalSpeed = speed;
         }
 
-        if (!isSkieur)
+        void Start()
         {
-            rb.velocity = new Vector3(0, speed* inertie, 0);
-            }
-        else {
-            rb.velocity = new Vector3(0, -speed* inertie, 0);
-            }
-
-        StopGame();
+            rb = GetComponent<Rigidbody>();
         }
 
-    void StopGame()
-    {
-        if (testCollision.staticCollision.Collision)
+        void Update()
         {
-            speed = 0;
-            originalSpeed = 0;
+            if (Move.staticMove.isBouleDeNeige)
+            {
+                speed = Move.staticMove.rouleSpeed;
+            }
+
+            if (!isSkieur)
+            {
+                rb.velocity = new Vector3(0, speed * inertie, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector3(0, -speed * inertie, 0);
+            }
+
+            StopGame();
+        }
+
+        void StopGame()
+        {
+            if (testCollision.staticCollision.Collision)
+            {
+                speed = 0;
+                originalSpeed = 0;
+            }
         }
     }
 }
