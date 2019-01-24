@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114065865703556648}
   - component: {fileID: 114001639875657276}
   - component: {fileID: 54874041986381454}
+  - component: {fileID: 114871518130980436}
   m_Layer: 0
   m_Name: Skieur
   m_TagString: Untagged
@@ -277,8 +278,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 1.5, z: 1}
+  m_Center: {x: 0, y: -0.75, z: 0}
 --- !u!95 &95353600027112386
 Animator:
   serializedVersion: 3
@@ -303,7 +304,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281458262876948}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2ef4d0518d12e045817419ca76585ef, type: 3}
   m_Name: 
@@ -329,6 +330,7 @@ MonoBehaviour:
   Spawners:
   - {fileID: 0}
   - {fileID: 0}
+  CamTransform: {fileID: 0}
 --- !u!114 &114421089595340886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,13 +363,82 @@ MonoBehaviour:
   rouleSpeed: 20
   tilt: -2
   isBouleDeNeige: 1
+  isJumping: 0
+  seconds: 0
   Cam: {fileID: 0}
   plane: {fileID: 0}
   wantedPositon: {x: 0, y: 0, z: 0}
   wantedPositon2: {x: 0, y: 0, z: 0}
+  Traily: {fileID: 0}
   MeshNormal: {fileID: 1590731558244444}
   MeshBoule: {fileID: 1471705782930114}
   MeshKO: {fileID: 1471705782930114}
+--- !u!114 &114871518130980436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281458262876948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd247c13cc354424b84e3fd7d235fe69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sautillement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.0000008496834
+      outSlope: -0.0000008496834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13988866
+    - serializedVersion: 3
+      time: 0.8046005
+      value: 0.03956358
+      inSlope: 2.6246836
+      outSlope: 2.6246836
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.48108324
+    - serializedVersion: 3
+      time: 0.9112569
+      value: 0.04091326
+      inSlope: 3.6790328
+      outSlope: 3.6790328
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33142766
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0014648
+      value: 0.002784729
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxJumpZ: -42
+  maxScale: 2
+  second: 0
+  JumpDuration: 1.25
 --- !u!120 &120141692509841090
 LineRenderer:
   m_ObjectHideFlags: 1

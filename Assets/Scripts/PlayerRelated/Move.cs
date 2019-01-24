@@ -19,6 +19,7 @@ namespace GRP07_SkiMadness
 
         [Header("Statut")]
         public bool isBouleDeNeige = false;
+        public bool isJumping = false;
 
         [Header("Timer")]
         public float seconds;
@@ -38,7 +39,7 @@ namespace GRP07_SkiMadness
         private Vector3 velocity = Vector3.zero;
         public Vector3 wantedPositon2;
         private Vector3 mousePosition;
-        private TrailEffect Traily;
+        public TrailEffect Traily;
 
         public GameObject MeshNormal;
         public GameObject MeshBoule;
@@ -65,22 +66,32 @@ namespace GRP07_SkiMadness
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isJumping = true;
+            }
+            else
+            {
+                isJumping = false;
+            }
+
+
             seconds += Time.deltaTime;
             StaticYZ();
             OnMove();
             StayWithMe();
             StopGame();
             BouleDeNeige();
-            EnableTrail();
+            //EnableTrail();
         }
 
-        private void EnableTrail()
+        /*private void EnableTrail()
         {
             if (seconds > 0.5f)
             {
                 Traily.enabled = true;
             }
-        }
+        }*/
 
         void StaticYZ()
         {
@@ -101,7 +112,7 @@ namespace GRP07_SkiMadness
             float moveHorizontal = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
-            rb.velocity = movement * 3 * speed;
+            rb.velocity = movement * 5 * speed;
 
             rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
 

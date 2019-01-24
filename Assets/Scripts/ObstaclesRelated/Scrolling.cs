@@ -42,6 +42,12 @@ namespace GRP07_SkiMadness
                 rb.velocity = new Vector3(0, -speed * inertie, 0);
             }
 
+            if (TimerBar.staticTimer.time <= 0)
+            {
+                speed = 0;
+                rb.velocity = Vector3.zero;
+            }
+
             StopGame();
         }
 

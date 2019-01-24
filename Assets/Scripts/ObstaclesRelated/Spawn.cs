@@ -34,7 +34,6 @@ namespace GRP07_SkiMadness
         // Update is called once per frame
         void Update()
         {
-
             Timing();
 
             DifficultyCheck();
