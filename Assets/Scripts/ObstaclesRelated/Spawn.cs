@@ -11,8 +11,8 @@ namespace GRP07_SkiMadness
         public Vector3 position;
         public Vector3 size;
         public float timer;
-        public float minTime = Difficulty.staticDifficulty.minTimer;
-        public float maxTime = Difficulty.staticDifficulty.maxTimer;
+        public float minTime;
+        public float maxTime;
 
         [Header("===Obstacles===")]
         public List<GameObject> prefabs;

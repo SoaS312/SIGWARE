@@ -28,7 +28,7 @@ namespace GRP07_SkiMadness
                 time = 10000;
             }
 
-            if (time <= 0)
+            if (time <= 0.5f)
             {
                 arrivée.SetActive(true);
 

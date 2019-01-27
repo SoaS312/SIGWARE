@@ -619,9 +619,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collision: 0
-  Spawners:
-  - {fileID: 0}
-  - {fileID: 0}
   CamTransform: {fileID: 0}
 --- !u!114 &114421089595340886
 MonoBehaviour:
@@ -660,8 +657,6 @@ MonoBehaviour:
   seconds: 0
   Cam: {fileID: 0}
   plane: {fileID: 0}
-  wantedPositon: {x: 0, y: 0, z: 0}
-  wantedPositon2: {x: 0, y: 0, z: 0}
   Traily: {fileID: 0}
   MeshNormal: {fileID: 1623309660609112}
   MeshBoule: {fileID: 1471705782930114}

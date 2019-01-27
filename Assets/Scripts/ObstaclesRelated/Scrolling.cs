@@ -17,13 +17,13 @@ namespace GRP07_SkiMadness
         private void Awake()
         {
             staticScrolling = this;
-            speed = Move.staticMove.speed;
             originalSpeed = speed;
         }
 
         void Start()
         {
             rb = GetComponent<Rigidbody>();
+            speed = Move.staticMove.speed;
         }
 
         void Update()

@@ -15,6 +15,7 @@ namespace GRP07_SkiMadness
         public float iniMinTime;
         public float iniMaxTime;
         public float TimeMultiplier;
+        public bool spawnGauche;
 
         [Header("===Fans===")]
         public List<GameObject> prefabs;
@@ -55,7 +56,16 @@ namespace GRP07_SkiMadness
         if (Input.GetKeyDown("l") || timer <= 0)
         {
             Vector3 Pos = position + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0, 0);
-            Instantiate(gameObjectSelected, Pos, Quaternion.Euler(0,0,0));
+                int index = Random.Range(0, prefabs.Count);
+                gameObjectSelected = prefabs[index];
+                if (spawnGauche)
+                {
+                    Instantiate(gameObjectSelected, Pos, Quaternion.Euler(-360, 90, -90));
+                }
+                else
+                {
+                    Instantiate(gameObjectSelected, Pos, Quaternion.Euler(-180, 90, -90));
+                }
             timer = Random.Range(minTime, maxTime);
         }
     }

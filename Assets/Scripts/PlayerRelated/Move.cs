@@ -36,9 +36,7 @@ namespace GRP07_SkiMadness
         Rigidbody rb;
         public Camera Cam;
         public GameObject plane;
-        public Vector3 wantedPositon;
         private Vector3 velocity = Vector3.zero;
-        public Vector3 wantedPositon2;
         private Vector3 mousePosition;
         public TrailEffect Traily;
 
@@ -60,8 +58,6 @@ namespace GRP07_SkiMadness
 
         private void Start()
         {
-
-            wantedPositon = transform.position;
             Cursor.visible = false;
         }
 
@@ -81,7 +77,6 @@ namespace GRP07_SkiMadness
             StaticYZ();
             OnMove();
             StayWithMe();
-            StopGame();
             BouleDeNeige();
             KO();
             EnableTrail();
@@ -138,13 +133,10 @@ namespace GRP07_SkiMadness
             }
         }
 
-        void StopGame()
+        public void StopGame()
         {
-            if (testCollision.staticCollision.Collision)
-            {
                 speed = 0;
                 rouleSpeed = 0;
-            }
         }
     }
 }

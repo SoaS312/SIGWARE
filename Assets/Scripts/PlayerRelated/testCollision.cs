@@ -9,22 +9,11 @@ namespace GRP07_SkiMadness
 
         public static testCollision staticCollision;
         public bool Collision = false;
-
-        // Transform of the GameObject you want to shake
         public Transform CamTransform;
-
-        // Desired duration of the shake effect
         private float shakeDuration = 0f;
-
-        // A measure of magnitude for the shake. Tweak based on your preference
         private float shakeMagnitude = 0.5f;
-
-        // A measure of how quickly the shake effect should evaporate
         private float dampingSpeed = 1.0f;
-
-        // The initial position of the GameObject
         Vector3 initialPosition;
-
 
         private void Start()
         {
@@ -55,6 +44,7 @@ namespace GRP07_SkiMadness
                 Move.staticMove.isKO = true;
                 shakeDuration = 0.5f;
                 Collision = true;
+                Move.staticMove.StopGame();
             }
             else
             {

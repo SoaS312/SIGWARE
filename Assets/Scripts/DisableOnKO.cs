@@ -6,13 +6,10 @@ namespace GRP07_SkiMadness
 {
     public class DisableOnKO : MonoBehaviour
     {
-        // Update is called once per frame
-        void Update()
+        public void LateUpdate()
         {
-
-            if (Move.staticMove.isKO)
+            if (Move.staticMove.isKO ||Win_Lose.staticwinlose.Lose)
                 this.gameObject.SetActive(false);
-
         }
     }
 }
