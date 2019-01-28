@@ -23,11 +23,12 @@ namespace GRP07_SkiMadness
         void Start()
         {
             rb = GetComponent<Rigidbody>();
-            speed = Move.staticMove.speed;
         }
 
         void Update()
         {
+            speed = Move.staticMove.speed;
+
             if (Move.staticMove.isBouleDeNeige)
             {
                 speed = Move.staticMove.rouleSpeed;
@@ -46,6 +47,9 @@ namespace GRP07_SkiMadness
             {
                 speed = 0;
                 rb.velocity = Vector3.zero;
+            }
+            else if (TimerBar.staticTimer.time <= 0 && isSkieur){
+                speed = -originalSpeed * inertie;
             }
 
             StopGame();

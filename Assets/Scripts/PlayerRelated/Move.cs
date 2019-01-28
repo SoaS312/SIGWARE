@@ -26,8 +26,8 @@ namespace GRP07_SkiMadness
         public float seconds;
 
         [Header("Misc")]
-        float min = 0.05f;
-        float max = 0.95f;
+        public float min = 0.05f;
+        public float max = 0.95f;
         float startY;
         float startZ;
         Vector3 staticPos;
@@ -63,6 +63,21 @@ namespace GRP07_SkiMadness
 
         void Update()
         {
+            StartGame();
+            Jump();
+
+            CheckTimeOut();
+            TimeFlee();
+            StaticYZ();
+            OnMove();
+            StayWithMe();
+            BouleDeNeige();
+            KO();
+            EnableTrail();
+        }
+
+        private void Jump()
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 isJumping = true;
@@ -71,15 +86,30 @@ namespace GRP07_SkiMadness
             {
                 isJumping = false;
             }
+        }
 
+        private void CheckTimeOut()
+        {
+            if (TimerBar.staticTimer.time <= 0)
+            {
+                StopGame();
+            }
+        }
 
+        private void TimeFlee()
+        {
             seconds += Time.deltaTime;
-            StaticYZ();
-            OnMove();
-            StayWithMe();
-            BouleDeNeige();
-            KO();
-            EnableTrail();
+        }
+
+        void StartGame()
+        {
+            if (TimerBar.staticTimer.time <= 10)
+            {
+                if(!isBouleDeNeige && !isKO)
+                {
+                    speed = 10;
+                }
+            }
         }
 
         private void EnableTrail()

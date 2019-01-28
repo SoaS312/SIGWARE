@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54820924448494954}
   - component: {fileID: 114275392779085024}
   - component: {fileID: 212224429059395024}
+  - component: {fileID: 114624279983361542}
   m_Layer: 0
   m_Name: Luge
   m_TagString: Untagged
@@ -157,6 +158,17 @@ MonoBehaviour:
   speed: 10
   inertie: 5
   isSkieur: 1
+--- !u!114 &114624279983361542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692971947730536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ab22dd4d8f2d24fa02e0ed3f1714c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212224429059395024
 SpriteRenderer:
   m_ObjectHideFlags: 1

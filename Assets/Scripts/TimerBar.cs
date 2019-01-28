@@ -7,35 +7,41 @@ namespace GRP07_SkiMadness
 {
     public class TimerBar : MonoBehaviour
     {
-       // public Image TimeFill;
+        // public Image TimeFill;
+        public int preparationTime = 2;
+        public int gameTime = 10;
         public float time;
-        public float timeAmt = 10;
         public GameObject arrivée;
         public static TimerBar staticTimer;
-        public List <GameObject> Spawners;
+        public GameObject Spawners;
+        public GameObject Départ;
         
         void Start()
         {
             //TimeFill = this.GetComponent<Image>();
-            time = timeAmt;
             staticTimer = this;
+            time = gameTime + preparationTime;
         }
         
         void Update()
         {
+
+            if (time <= gameTime && time >0.5f)
+            {
+                Spawners.SetActive(true);
+                if (Départ != null)
+                Départ.GetComponent<Animator>().enabled = true;
+            }
+            else if (time <= 0.5f)
+            {
+                arrivée.SetActive(true);
+                Spawners.SetActive(false);
+            }
+
             if (testCollision.staticCollision.Collision)
             {
                 time = 10000;
             }
-
-            if (time <= 0.5f)
-            {
-                arrivée.SetActive(true);
-
-                foreach (GameObject obj in Spawners)
-                    obj.SetActive(false);
-            }
-
             if (time > 0)
             {
                 time -= Time.deltaTime;

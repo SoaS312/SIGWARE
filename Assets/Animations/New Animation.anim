@@ -20,19 +20,19 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 4300000, guid: a2b5f352d36aca445a2e97dfa8a4fe0d, type: 3}
-    - time: 0.083333336
+    - time: 2.025
       value: {fileID: 4300000, guid: c8e0e04deb60784488758a90c7246432, type: 3}
-    - time: 0.16666667
+    - time: 2.1083333
       value: {fileID: 4300000, guid: 113f4725aaa08c142a1b3fd9cfb21535, type: 3}
-    - time: 0.25
+    - time: 2.1916666
       value: {fileID: 4300000, guid: f3f0f6145cb266d4bb24a818b456a685, type: 3}
-    - time: 0.33333334
+    - time: 2.275
       value: {fileID: 4300000, guid: 8ed971a9f90a1af49a021f17cde7320b, type: 3}
-    - time: 0.41666666
+    - time: 2.3583333
       value: {fileID: 4300000, guid: e510dc1746e1665459267316a0a82810, type: 3}
-    - time: 0.5
+    - time: 2.4416666
       value: {fileID: 4300000, guid: d47e88d7f3bf324488eb2c8e5a6938fc, type: 3}
-    - time: 0.5833333
+    - time: 2.525
       value: {fileID: 4300000, guid: 9f5e81ab346dda847a84aef6bdf87036, type: 3}
     attribute: currentMesh
     path: 
@@ -66,7 +66,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59166664
+    m_StopTime: 2.5333335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

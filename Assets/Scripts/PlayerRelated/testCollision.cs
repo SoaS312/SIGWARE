@@ -39,17 +39,25 @@ namespace GRP07_SkiMadness
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.gameObject.name.Contains("Bonhomme"))
+
+            if (other.gameObject.name.Contains("Bonhomme") || other.gameObject.name.Contains("Igloo") || other.gameObject.name.Contains("Jumper"))
+            {
+                if (other.gameObject.name.Contains("Bonhomme") || other.gameObject.name.Contains("Igloo"))
+                    {
+                    Move.staticMove.isBouleDeNeige = true;
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Move.staticMove.isJumping = true;
+                }
+            }
+            else
             {
                 Move.staticMove.isKO = true;
                 shakeDuration = 0.5f;
                 Collision = true;
                 Move.staticMove.StopGame();
-            }
-            else
-            {
-                Move.staticMove.isBouleDeNeige = true;
-                Destroy(other.gameObject);
             }
         }
     }

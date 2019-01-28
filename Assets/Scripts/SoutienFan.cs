@@ -23,7 +23,6 @@ namespace GRP07_SkiMadness
 
         void Update()
         {
-            //transform.LookAt(Move.staticMove.gameObject.transform);
             Timer();
 
             if (TimerBar.staticTimer.time <= 0)

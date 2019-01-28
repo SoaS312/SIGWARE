@@ -15,61 +15,87 @@ namespace GRP07_SkiMadness
         public float maxTime;
 
         [Header("===Obstacles===")]
-        public List<GameObject> prefabs;
         public GameObject gameObjectSelected;
         public int index;
-        public List<GameObject> EasyObject;
-        public List<GameObject> NormalObjects;
-        public List<GameObject> HardObjects;
 
-        // Use this for initialization
+        [Header("===OnGoing===")]
+        public List<GameObject> commonObjects;
+        public List<GameObject> uncommonObjects;
+        public List<GameObject> rareObjects;
+        public float spawnChances;
+        public List<GameObject> SelectedList;
+
         void Start()
         {
+            spawnChances = Random.Range(0f, 1f);
             position = gameObject.transform.position;
             timer = Random.Range(minTime, maxTime);
             minTime = Difficulty.staticDifficulty.minTimer;
             maxTime = Difficulty.staticDifficulty.maxTimer;
         }
 
-        // Update is called once per frame
         void Update()
         {
             Timing();
-
-            DifficultyCheck();
-
+            SpawningChanceTable();
             Spawning();
         }
-
-        void DifficultyCheck()
+        void SpawningChanceTable()
         {
             if (Difficulty.staticDifficulty.difficultyRate == 0)
             {
-                if (EasyObject.Count > 0)
-                    prefabs = EasyObject;
+                if (spawnChances >= 0.7f)
+                {
+                    SelectedList = uncommonObjects;
+                }
+                if (spawnChances < 0.7f)
+                {
+                    SelectedList = commonObjects;
+                }
             }
-
             if (Difficulty.staticDifficulty.difficultyRate == 1)
             {
-                prefabs = NormalObjects;
+                if (spawnChances >= 0.85f)
+                {
+                    SelectedList = rareObjects;
+                }
+                if (spawnChances >= 0.5f && spawnChances < 0.85f)
+                {
+                    SelectedList = uncommonObjects;
+                }
+                if (spawnChances < 0.5f)
+                {
+                    SelectedList = commonObjects;
+                }
             }
-
             if (Difficulty.staticDifficulty.difficultyRate == 2)
             {
-                prefabs = HardObjects;
+                if (spawnChances >= 0.7f)
+                {
+                    SelectedList = rareObjects;
+                }
+                if (spawnChances >= 0.3f && spawnChances < 0.7f)
+                {
+                    SelectedList = uncommonObjects;
+                }
+                if (spawnChances < 0.3f)
+                {
+                    SelectedList = commonObjects;
+                }
             }
         }
 
         void Spawning()
         {
-
-            if (Input.GetKeyDown("l") || timer <= 0)
+            
+            if (timer <= 0)
             {
-                Vector3 Pos = position + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0, 0);
-                index = Random.Range(0, prefabs.Count);
-                gameObjectSelected = prefabs[index];
-                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(Random.Range(0, 360), -90, 90));
                 timer = Random.Range(minTime, maxTime);
+                spawnChances = Random.Range(0f, 1f);
+                Vector3 Pos = position + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0, 0);
+                index = Random.Range(0, SelectedList.Count);
+                gameObjectSelected = SelectedList[index];
+                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(Random.Range(0, 360), -90, 90));
             }
         }
 
@@ -81,6 +107,7 @@ namespace GRP07_SkiMadness
 
         }
 
+        
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(1, 0, 0, 0.5f);
