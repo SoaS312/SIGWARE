@@ -103,7 +103,7 @@ namespace GRP07_SkiMadness
 
         void StartGame()
         {
-            if (TimerBar.staticTimer.time <= 10)
+            if (TimerBar.staticTimer.time <= TimerBar.staticTimer.gameTime)
             {
                 if(!isBouleDeNeige && !isKO)
                 {

@@ -1780,6 +1780,11 @@ Prefab:
       propertyPath: max
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114871518130980436, guid: 784382de969bf4c44bf6df89b9d6ecb6,
+        type: 2}
+      propertyPath: second
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 64773619543133660, guid: 784382de969bf4c44bf6df89b9d6ecb6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 784382de969bf4c44bf6df89b9d6ecb6, type: 2}
