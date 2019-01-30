@@ -12,6 +12,7 @@ namespace GRP07_SkiMadness
         public float timer = 10f;
         public float currentTime;
         public float decreaseTime;
+        public GameObject SkieurNormal;
 
         private void FixedUpdate()
         {
@@ -34,40 +35,10 @@ namespace GRP07_SkiMadness
             }
         }
 
-        /* // Use this for initialization
-         void Start()
-         {
-             InvokeRepeating("Animation", 1f, 5f);
-         }
-
-         private void FixedUpdate()
-         {
-             //Animation();
-         }
-
-         // Update is called once per frame
-         void Animation()
-         {
-
-             /*if (index < 8)
-             {
-                 index++;
-                 if (index >= 8)
-                 {
-                     index = 0;
-                 }
-                 currentMesh = animMeshes[index];
-                 gameObject.GetComponent<MeshFilter>().mesh = currentMesh;
-             }
-         }*/
-
-        /*private void Update()
+        public void EndAnim()
         {
-            if (Input.GetKeyDown("space"))
-            {
-                gameObject.GetComponent<Animator>().Play("New Animation");
-            }
-        }*/
-
+            this.gameObject.SetActive(false);
+            SkieurNormal.SetActive(true);
+        }
     }
 }

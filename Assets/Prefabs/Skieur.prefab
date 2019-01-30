@@ -97,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1534797230894824
 GameObject:
   m_ObjectHideFlags: 1
@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 33675570216629416}
   - component: {fileID: 23068443728186090}
   - component: {fileID: 114421089595340886}
-  - component: {fileID: 64773619543133660}
   - component: {fileID: 95540609535897630}
   m_Layer: 0
   m_Name: SkieurKnockOut
@@ -167,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1718746883343974
 GameObject:
   m_ObjectHideFlags: 1
@@ -192,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479848861276740}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.05, y: -0.88000107, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4739362490849384}
@@ -260,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 1281458262876948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -35, z: -35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_Children:
   - {fileID: 4771702133790264}
   - {fileID: 4834788606142322}
@@ -507,20 +506,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 12
   m_CollisionDetection: 0
---- !u!64 &64773619543133660
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590731558244444}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 7df3a06e2e341bd42a98761770117047, type: 3}
 --- !u!65 &65443140677603772
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -648,13 +633,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59964ac3db188874ead9e8bf5937be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 0
   rouleSpeed: 20
   tilt: -1
   isBouleDeNeige: 1
   isJumping: 0
   isKO: 0
   seconds: 0
+  min: 0.18
+  max: 0.8
   Cam: {fileID: 0}
   plane: {fileID: 0}
   Traily: {fileID: 0}
@@ -736,7 +723,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   maxJumpZ: -42
   maxScale: 2
-  second: 0
+  second: 1000
   JumpDuration: 1.25
 --- !u!114 &114994972303922626
 MonoBehaviour:

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +42,8 @@ namespace GRP07_SkiMadness
         public GameObject MeshNormal;
         public GameObject MeshBoule;
         public GameObject MeshKO;
+        public List<GameObject> MeshSaut;
+        public GameObject SelectedMeshSaut;
 
         private void Awake()
         {
@@ -59,6 +60,7 @@ namespace GRP07_SkiMadness
         private void Start()
         {
             Cursor.visible = false;
+            SelectedMeshSaut = MeshSaut[Random.Range(0, MeshSaut.Count)];
         }
 
         void Update()
@@ -92,7 +94,7 @@ namespace GRP07_SkiMadness
         {
             if (TimerBar.staticTimer.time <= 0)
             {
-                StopGame();
+                StopGame(); 
             }
         }
 
@@ -153,6 +155,13 @@ namespace GRP07_SkiMadness
                 roule -= rouleSpeed; //ideal speed > 20
                 rb.rotation = Quaternion.Euler(roule, 0.0f, rb.velocity.x * -tilt);
             }
+        }
+
+        public void JumpAnimation()
+        {
+                MeshNormal.SetActive(false);
+                SelectedMeshSaut = MeshSaut[Random.Range(0, MeshSaut.Count)];
+                SelectedMeshSaut.SetActive(true);
         }
 
         void KO()

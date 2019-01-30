@@ -50,6 +50,7 @@ namespace GRP07_SkiMadness
                 else
                 {
                     Move.staticMove.isJumping = true;
+                    Move.staticMove.JumpAnimation();
                 }
             }
             else
