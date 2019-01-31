@@ -40,13 +40,15 @@ namespace GRP07_SkiMadness
                 float percentTimer = second / JumpDuration;
                 Hopping(percentTimer);
                 GetComponent<Collider>().enabled = false;
-                Move.staticMove.Traily.enabled = false;
+                //Move.staticMove.Traily.enabled = false;
+                GetComponent<TrailEffect>().enabled = false;
             }
 
             if (second >= JumpDuration)
             {
                 GetComponent<Collider>().enabled = true;
                 Move.staticMove.Traily.enabled = true;
+                GetComponent<TrailEffect>().enabled = true;
             }
         }
 

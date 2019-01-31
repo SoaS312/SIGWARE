@@ -29,10 +29,6 @@ namespace GRP07_SkiMadness
             initalPositon = gameObject.transform.position;
             lineGauche = gameObject.transform.GetChild(0).GetComponent<LineRenderer>();
             lineDroite = gameObject.transform.GetChild(1).GetComponent<LineRenderer>();
-            //lineGauche.SetPosition(0, initalPositon + new Vector3(-0.2f, 1, 0));
-            //lineDroite.SetPosition(0, initalPositon + new Vector3(0.2f, 1, 0));
-            //lineGauche.SetPosition(1, initalPositon + new Vector3(-0.2f, 0, 0));
-            //lineDroite.SetPosition(1, initalPositon + new Vector3(0.2f, 0, 0));
             index = 1;
             positionY = 1;
             numlist = 0;

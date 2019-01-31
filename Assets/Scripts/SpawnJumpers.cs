@@ -34,7 +34,7 @@ namespace GRP07_SkiMadness
             {
                 timer = Random.Range(minTime, maxTime);
                 Vector3 Pos = position + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0, 0);
-                Instantiate(Jumpers, Pos, Quaternion.Euler(0, 0, 0));
+                Instantiate(Jumpers, Pos, Quaternion.Euler(90, -90, 90));
             }
         }
 

@@ -75,7 +75,6 @@ namespace GRP07_SkiMadness
             StayWithMe();
             BouleDeNeige();
             KO();
-            EnableTrail();
         }
 
         private void Jump()
@@ -111,14 +110,6 @@ namespace GRP07_SkiMadness
                 {
                     speed = 10;
                 }
-            }
-        }
-
-        private void EnableTrail()
-        {
-            if (seconds > 0.5f)
-            {
-                Traily.enabled = true;
             }
         }
 
