@@ -159,9 +159,12 @@ namespace GRP07_SkiMadness
 
         public void JumpAnimation()
         {
+            if (!isBouleDeNeige)
+            {
                 MeshNormal.SetActive(false);
                 SelectedMeshSaut = MeshSaut[Random.Range(0, MeshSaut.Count)];
                 SelectedMeshSaut.SetActive(true);
+            }
         }
 
         void KO()

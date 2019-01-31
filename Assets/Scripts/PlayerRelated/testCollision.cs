@@ -14,6 +14,7 @@ namespace GRP07_SkiMadness
         private float shakeMagnitude = 0.5f;
         private float dampingSpeed = 1.0f;
         Vector3 initialPosition;
+        public GameObject BonhommeNeigeExplosion;
 
         private void Start()
         {
@@ -45,6 +46,9 @@ namespace GRP07_SkiMadness
                 if (other.gameObject.name.Contains("Bonhomme") || other.gameObject.name.Contains("Igloo"))
                     {
                     Move.staticMove.isBouleDeNeige = true;
+                    if (other.gameObject.name.Contains("Bonhomme")){
+                        Instantiate(BonhommeNeigeExplosion, other.transform.position, transform.rotation);
+                    }
                     Destroy(other.gameObject);
                 }
                 else
