@@ -9,10 +9,23 @@ public class SpawnBadSkieurs : MonoBehaviour {
     public Vector3 position;
     public Vector3 size;
     public float timer;
-    public float minTime;
-    public float maxTime;
+    private float minTime;
+    private float maxTime;
 
-    [Header("===Fans===")]
+        [Header("===Timer (Easy Difficulty)==")]
+        public float minEZTime;
+        public float maxEZTime;
+        [Header("===Timer (Medium Difficulty)===")]
+        public float minMedTime;
+        public float maxMedTime;
+        [Header("===Timer (Hard Difficulty)===")]
+        public float minHardTime;
+        public float maxHardTime;
+
+
+
+
+        [Header("===Fans===")]
     public List<GameObject> prefabs;
     public GameObject gameObjectSelected;
 
@@ -20,30 +33,30 @@ public class SpawnBadSkieurs : MonoBehaviour {
     void Start()
     {
         position = gameObject.transform.position;
-        timer = Random.Range(minTime, maxTime);
-    }
+            if (Difficulty.staticDifficulty.difficultyRate == 0)
+            {
+                minTime = minEZTime;
+                maxTime = maxEZTime;
+            }
+            if (Difficulty.staticDifficulty.difficultyRate == 1)
+            {
+                minTime = minMedTime;
+                maxTime = maxMedTime;
+            }
+            if (Difficulty.staticDifficulty.difficultyRate == 2)
+            {
+                minTime = minHardTime;
+                maxTime = maxHardTime;
+            }
+
+            timer = Random.Range(minTime, maxTime);
+        }
 
     // Update is called once per frame
     void Update()
     {
         Timing();
         Spawning();
-
-            if(Difficulty.staticDifficulty.difficultyRate == 0)
-            {
-                this.enabled = false;
-            }
-            if (Difficulty.staticDifficulty.difficultyRate == 1)
-            {
-                minTime = 0.5f;
-                maxTime = 1;
-            }
-            if (Difficulty.staticDifficulty.difficultyRate == 2)
-            {
-                minTime = 0.25f;
-                maxTime = 0.5f;
-            }
-
         }
 
     void Spawning()

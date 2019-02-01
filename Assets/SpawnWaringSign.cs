@@ -7,10 +7,17 @@ namespace GRP07_SkiMadness
     public class SpawnWaringSign : MonoBehaviour
     {
         public GameObject WarningSign;
-        // Use this for initialization
+        private GameObject instantiatedObj;
+        
         void Start()
         {
-            Instantiate(WarningSign, new Vector3(transform.position.x, -22, -35), new Quaternion(0,0,0,1));
+            instantiatedObj = Instantiate(WarningSign, new Vector3(transform.position.x, -22, -35), new Quaternion(0,0,0,1));
+        }
+
+        void Update()
+        {
+            if (this.gameObject.GetComponent<Renderer>().isVisible)
+            Destroy(instantiatedObj);
         }
     }
 }

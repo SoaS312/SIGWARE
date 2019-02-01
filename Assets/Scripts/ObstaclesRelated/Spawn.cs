@@ -14,6 +14,16 @@ namespace GRP07_SkiMadness
         public float minTime;
         public float maxTime;
 
+        [Header("===Timer (Easy Difficulty)==")]
+        public float minEZTime;
+        public float maxEZTime;
+        [Header("===Timer (Medium Difficulty)===")]
+        public float minMedTime;
+        public float maxMedTime;
+        [Header("===Timer (Hard Difficulty)===")]
+        public float minHardTime;
+        public float maxHardTime;
+
         [Header("===Obstacles===")]
         public GameObject gameObjectSelected;
         public int index;
@@ -29,9 +39,23 @@ namespace GRP07_SkiMadness
         {
             spawnChances = Random.Range(0f, 1f);
             position = gameObject.transform.position;
+            if (Difficulty.staticDifficulty.difficultyRate == 0)
+            {
+                minTime = minEZTime;
+                maxTime = maxEZTime;
+            }
+            if (Difficulty.staticDifficulty.difficultyRate == 1)
+            {
+                minTime = minMedTime;
+                maxTime = maxMedTime;
+            }
+            if (Difficulty.staticDifficulty.difficultyRate == 2)
+            {
+                minTime = minHardTime;
+                maxTime = maxHardTime;
+            }
+
             timer = Random.Range(minTime, maxTime);
-            minTime = Difficulty.staticDifficulty.minTimer;
-            maxTime = Difficulty.staticDifficulty.maxTimer;
         }
 
         void Update()
