@@ -162,6 +162,7 @@ namespace GRP07_SkiMadness
         {
             if (isKO)
             {
+                transform.rotation = new Quaternion(0, 0, 0, 1);
                 MeshBoule.SetActive(false); MeshNormal.SetActive(false); MeshKO.SetActive(true);
             }
         }

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114624279983361542}
   - component: {fileID: 114526137968361498}
   - component: {fileID: 96647926350011682}
+  - component: {fileID: 114094243076604182}
   m_Layer: 0
   m_Name: Luge
   m_TagString: Untagged
@@ -56,14 +57,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692971947730536}
-  m_LocalRotation: {x: 0.0006088661, y: -0.7466393, z: 0.6652286, w: -0.00056091795}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.00000013240823, y: -0.7071068, z: 0.7071068, w: -0.00000013240823}
+  m_LocalPosition: {x: -10, y: -35, z: -35}
   m_LocalScale: {x: 0.075, y: 0.075, z: 0.075}
   m_Children:
   - {fileID: 4753232174664388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 96.60101, y: -0.8209839, z: 179.175}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180.00002}
 --- !u!4 &4753232174664388
 Transform:
   m_ObjectHideFlags: 1
@@ -182,7 +183,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 1
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -238,6 +239,73 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114094243076604182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692971947730536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5791f7ec75f54d644b1d1c2208ad1f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sautillement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.0000008496834
+      outSlope: -0.0000008496834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13988866
+    - serializedVersion: 3
+      time: 0.8046005
+      value: 0.03956358
+      inSlope: 2.6246836
+      outSlope: 2.6246836
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.48108324
+    - serializedVersion: 3
+      time: 0.9112569
+      value: 0.04091326
+      inSlope: 3.6790328
+      outSlope: 3.6790328
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33142766
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0014648
+      value: 0.002784729
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxJumpZ: -42
+  maxScale: 0.1275
+  isJumping: 0
+  second: 1000
+  JumpDuration: 0.75
 --- !u!114 &114275392779085024
 MonoBehaviour:
   m_ObjectHideFlags: 1
