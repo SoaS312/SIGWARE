@@ -70,15 +70,15 @@ namespace GRP07_SkiMadness
             }
             if (Difficulty.staticDifficulty.difficultyRate == 2)
             {
-                if (spawnChances >= 0.7f)
+                if (spawnChances >= 0.75f)
                 {
                     SelectedList = rareObjects;
                 }
-                if (spawnChances >= 0.3f && spawnChances < 0.7f)
+                if (spawnChances >= 0.35f && spawnChances < 0.75f)
                 {
                     SelectedList = uncommonObjects;
                 }
-                if (spawnChances < 0.3f)
+                if (spawnChances < 0.35f)
                 {
                     SelectedList = commonObjects;
                 }

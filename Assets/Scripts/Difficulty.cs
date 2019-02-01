@@ -24,14 +24,14 @@ namespace GRP07_SkiMadness
             }
             if (difficultyRate == 1)
             {
-                minTimer = 0.25f;
+                minTimer = 0.3f;
                 maxTimer = 0.5f;
             }
 
             if (difficultyRate == 2)
             {
-                minTimer = 0.1f;
-                maxTimer = 0.25f;
+                minTimer = 0.25f;
+                maxTimer = 0.35f;
             }
             staticDifficulty = this;
 

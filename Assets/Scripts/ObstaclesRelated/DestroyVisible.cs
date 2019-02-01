@@ -9,7 +9,7 @@ namespace GRP07_SkiMadness
 
         private void OnBecameInvisible()
         {
-            Destroy(gameObject,1);
+            Destroy(gameObject,3);
         }
     }
 }

@@ -42,11 +42,11 @@ public class SpawnOutside : MonoBehaviour {
             gameObjectSelected = prefabs[index];
             if (spawnGauche)
             {
-                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(-360, 90, -90));
+                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(Random.Range(-380,-310), 90, -90));
             }
             else
             {
-                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(-180, 90, -90));
+                Instantiate(gameObjectSelected, Pos, Quaternion.Euler(Random.Range(-150, -210), 90, -90));
             }
             timer = Random.Range(minTime, maxTime);
         }
