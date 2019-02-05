@@ -75,6 +75,8 @@ namespace GRP07_SkiMadness
             StayWithMe();
             BouleDeNeige();
             KO();
+            if (speed > 0)
+            transform.position = new Vector3 (transform.position.x, transform.position.y -0.5f*Time.deltaTime , transform.position.z);
         }
 
         private void Jump()

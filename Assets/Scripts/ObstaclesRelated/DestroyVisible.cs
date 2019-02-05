@@ -7,9 +7,11 @@ namespace GRP07_SkiMadness
     public class DestroyVisible : MonoBehaviour
     {
 
+        public int time = 3;
+
         private void OnBecameInvisible()
         {
-            Destroy(gameObject,3);
+            Destroy(gameObject, time);
         }
     }
 }
