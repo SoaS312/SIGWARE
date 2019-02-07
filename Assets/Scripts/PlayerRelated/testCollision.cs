@@ -15,12 +15,14 @@ namespace GRP07_SkiMadness
         private float dampingSpeed = 1.0f;
         Vector3 initialPosition;
         public GameObject BonhommeNeigeExplosion;
+        public AudioSource audioS;
 
         private void Start()
         {
             staticCollision = this;
             Collision = false;
             initialPosition = CamTransform.localPosition;
+            audioS = this.GetComponent<AudioSource>();
         }
 
         void Update()
@@ -55,6 +57,7 @@ namespace GRP07_SkiMadness
                 {
                     Move.staticMove.isJumping = true;
                     Move.staticMove.JumpAnimation();
+                    audioS.Play(1);
                 }
             }
             else

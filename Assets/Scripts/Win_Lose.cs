@@ -26,6 +26,12 @@ namespace GRP07_SkiMadness
         #endif*/
             }
 
+            if (TimerBar.staticTimer.time <= 1)
+            {
+                Move.staticMove.Arrival();
+            }
+                
+                
             if (TimerBar.staticTimer.time <= 0)
             {
                 Victory = true;

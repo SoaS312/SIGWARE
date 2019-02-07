@@ -12,6 +12,10 @@ namespace GRP07_SkiMadness
             {
                 this.GetComponent<SpriteRenderer>().enabled = true;
             }
+            else
+            {
+                this.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 }

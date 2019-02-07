@@ -47,8 +47,8 @@ namespace GRP07_SkiMadness
             if (second >= JumpDuration)
             {
                 GetComponent<Collider>().enabled = true;
-                Move.staticMove.Traily.enabled = true;
-                GetComponent<TrailEffect>().enabled = true;
+                //Move.staticMove.Traily.enabled = true;
+                //GetComponent<TrailEffect>().enabled = true;
             }
         }
 

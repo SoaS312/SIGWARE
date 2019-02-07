@@ -10,10 +10,10 @@ namespace GRP07_SkiMadness
 
         [Header("Speeds")]
         [Range(0, 10)]
-        public int speed = 10;
+        public int speed;
         int roule;
         [Range(10, 50)]
-        public int rouleSpeed = 20;
+        public int rouleSpeed;
         public float tilt;
 
         [Header("Statut")]
@@ -44,17 +44,18 @@ namespace GRP07_SkiMadness
         public GameObject MeshKO;
         public List<GameObject> MeshSaut;
         public GameObject SelectedMeshSaut;
+        public GameObject MeshArrival;
 
         private void Awake()
         {
-            startY = transform.position.y;
-            startZ = transform.position.z;
+            seconds = 0;
+            startY = transform.position.y; startZ = transform.position.z;
             isBouleDeNeige = false;
             staticMove = this;
             rb = GetComponent<Rigidbody>();
             MeshNormal.SetActive(true);
             Traily = GetComponent<TrailEffect>();
-            seconds = 0;
+            Traily.enabled = false;
         }
 
         private void Start()
@@ -75,8 +76,9 @@ namespace GRP07_SkiMadness
             StayWithMe();
             BouleDeNeige();
             KO();
+
             if (speed > 0)
-            transform.position = new Vector3 (transform.position.x, transform.position.y -0.5f*Time.deltaTime , transform.position.z);
+            transform.position = new Vector3 (transform.position.x, transform.position.y -0.35f*Time.deltaTime , transform.position.z);
         }
 
         private void Jump()
@@ -110,6 +112,7 @@ namespace GRP07_SkiMadness
             {
                 if(!isBouleDeNeige && !isKO)
                 {
+                    Traily.enabled = true;
                     speed = 10;
                 }
             }
@@ -167,6 +170,12 @@ namespace GRP07_SkiMadness
                 transform.rotation = new Quaternion(0, 0, 0, 1);
                 MeshBoule.SetActive(false); MeshNormal.SetActive(false); MeshKO.SetActive(true);
             }
+        }
+
+        public void Arrival()
+        {
+            GetComponent<Collider>().enabled = false;
+            MeshArrival.SetActive(true); MeshBoule.SetActive(false); MeshNormal.SetActive(false);
         }
 
         public void StopGame()
