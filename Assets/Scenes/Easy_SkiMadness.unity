@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74681544165734a4db849e6949d5f487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyRate: 0
+  difficultyRate: 1
   minTimer: 0
   maxTimer: 0
 --- !u!4 &284334619
@@ -5104,11 +5104,11 @@ MonoBehaviour:
   timer: 0
   minTime: 0
   maxTime: 0
-  minEZTime: 0.75
-  maxEZTime: 1.25
-  minMedTime: 0.5
-  maxMedTime: 1
-  minHardTime: 0.35
+  minEZTime: 0.85
+  maxEZTime: 1.15
+  minMedTime: 0.4
+  maxMedTime: 0.85
+  minHardTime: 0.3
   maxHardTime: 0.5
   gameObjectSelected: {fileID: 0}
   index: 0
