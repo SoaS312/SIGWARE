@@ -33,10 +33,14 @@ namespace GRP07_SkiMadness
             {
                 Spawners.SetActive(false);
             }
-            if (time <= 0.5f)
+            if (time <= 0.5f && !Move.staticMove.isBouleDeNeige)
             {
                 arrivée.SetActive(true);
-                spawnDécorOutside.SetActive(true);
+                spawnDécorOutside.SetActive(false);
+            }else if (time <= 0.2f && Move.staticMove.isBouleDeNeige)
+            {
+                arrivée.SetActive(true);
+                spawnDécorOutside.SetActive(false);
             }
 
 

@@ -48,6 +48,8 @@ namespace GRP07_SkiMadness
                 SpawnTrailBoule();
             lineGauche.SetPosition(index, gameObject.transform.position + new Vector3(-0.08f, 0, 0));
             lineDroite.SetPosition(index, gameObject.transform.position + new Vector3(0.08f, 0, 0));
+                lineGauche.SetWidth(0.5f, 0.5f);
+                lineDroite.SetWidth(0.5f, 0.5f);
             }
         }
 

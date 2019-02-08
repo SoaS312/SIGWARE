@@ -77,8 +77,13 @@ namespace GRP07_SkiMadness
             BouleDeNeige();
             KO();
 
-            if (speed > 0)
-            transform.position = new Vector3 (transform.position.x, transform.position.y -0.35f*Time.deltaTime , transform.position.z);
+            if (speed > 0 && !isBouleDeNeige)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.35f * Time.deltaTime, transform.position.z);
+            }else if (speed > 0 && isBouleDeNeige)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f * Time.deltaTime, transform.position.z);
+            }
         }
 
         private void Jump()
@@ -110,11 +115,8 @@ namespace GRP07_SkiMadness
         {
             if (TimerBar.staticTimer.time <= TimerBar.staticTimer.gameTime)
             {
-                if(!isBouleDeNeige && !isKO)
-                {
                     Traily.enabled = true;
                     speed = 10;
-                }
             }
         }
 
