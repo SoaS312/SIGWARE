@@ -30,7 +30,7 @@ namespace GRP07_SkiMadness
 
             if (timer <= 0)
             {
-                gameObject.GetComponent<Animator>().Play("New Animation", -1, 0f);
+                gameObject.GetComponent<Animator>().Play("New Animation");
                 timer = 5;
             }
         }
