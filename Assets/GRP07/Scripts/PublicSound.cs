@@ -11,23 +11,26 @@ namespace GRP07_SkiMadness
         public AudioClip heureux;
         public AudioClip applaudissement;
         public AudioSource source;
+        public bool asplayed = false;
 
 
-        public void Update()
+        public void FixedUpdate()
         {
             if (Move.staticMove.isKO)
             {
-                if(!source.isPlaying)
+                asplayed = true;
+                if(!source.isPlaying && !asplayed)
                 source.PlayOneShot(déçu);
             }
 
             if (Move.staticMove.arrivee)
             {
-                if (!source.isPlaying)
+                asplayed = true;
+                if (!source.isPlaying && !asplayed)
                     source.PlayOneShot(heureux);
             }
 
-                if (Move.staticMove.isJumping)
+                if (Move.staticMove.SelectedMeshSaut.activeInHierarchy)
             {
                 if (!source.isPlaying)
                     source.PlayOneShot(applaudissement);
